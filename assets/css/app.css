@@ -2,3 +2,34 @@
 
 @import "./phoenix.css";
 @import "../../deps/phoenix_live_view/assets/css/live_view.css";
+
+.grid-wrapper {
+  display: grid; grid-gap:0;  grid-template-columns: repeat(3, 64px);
+  grid-template-rows: 64px 64px;  
+  border-bottom: 1px dashed black;
+  border-left: 1px dashed black;
+  width: 192px;
+}
+
+.grid-square {
+  width: 64px; height:64px;
+  border-top: 1px dashed black;
+  border-right: 1px dashed black;
+}
+
+.grid-square:hover {
+  background-color: darkolivegreen;
+  background-blend-mode: overlay;
+}
+
+.brown1 {
+  background: url(/images/scifi_tilesheet.png) no-repeat; background-position: 0 0px;
+}
+
+.brown2 {
+  background: url(/images/scifi_tilesheet.png) no-repeat; background-position: -64px 0px;
+}
+
+.blue1 {
+  background: url(/images/scifi_tilesheet.png) no-repeat; background-position: 0px -64px;
+}
