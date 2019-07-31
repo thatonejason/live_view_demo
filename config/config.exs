@@ -17,7 +17,7 @@ config :live_view_demo, LiveViewDemoWeb.Endpoint,
   render_errors: [view: LiveViewDemoWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: LiveViewDemo.PubSub, adapter: Phoenix.PubSub.PG2],
   live_view: [
-    signing_salt: "another_dummy_val_for_dev_env"
+    signing_salt: "AgitTRf3LWVi/gUlelcsBsj6COW/T0JG8RNKgAY0apt0UJlqAPuZ1NXKAVH3IjJa"
   ]
 
 # Configures Elixir's Logger
