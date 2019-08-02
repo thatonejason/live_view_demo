@@ -7,15 +7,15 @@
 # General application configuration
 use Mix.Config
 
-config :live_view_demo,
-  ecto_repos: [LiveViewDemo.Repo]
+config :world_domination_live,
+  ecto_repos: [WorldDominationLive.Repo]
 
 # Configures the endpoint
-config :live_view_demo, LiveViewDemoWeb.Endpoint,
+config :world_domination_live, WorldDominationLiveWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "dummy_val_for_dev_env",
-  render_errors: [view: LiveViewDemoWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: LiveViewDemo.PubSub, adapter: Phoenix.PubSub.PG2],
+  render_errors: [view: WorldDominationLiveWeb.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: WorldDominationLive.PubSub, adapter: Phoenix.PubSub.PG2],
   live_view: [
     signing_salt: "AgitTRf3LWVi/gUlelcsBsj6COW/T0JG8RNKgAY0apt0UJlqAPuZ1NXKAVH3IjJa"
   ]
