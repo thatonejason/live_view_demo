@@ -60,7 +60,7 @@ config :world_domination_live, WorldDominationLiveWeb.Endpoint,
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/world_domination_live_web/{live,views}/.*(ex)$",
+      ~r"lib/world_domination_live_web/(live,views)/.*(ex)$",
       ~r"lib/world_domination_live_web/templates/.*(eex)$",
       ~r{lib/live_view/live/.*(ex)$}
     ]
