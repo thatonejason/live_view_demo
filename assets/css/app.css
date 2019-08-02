@@ -3,33 +3,166 @@
 @import "./phoenix.css";
 @import "../../deps/phoenix_live_view/assets/css/live_view.css";
 
-.grid-wrapper {
-  display: grid; grid-gap:0;  grid-template-columns: repeat(3, 64px);
-  grid-template-rows: 64px 64px;  
-  border-bottom: 1px dashed black;
-  border-left: 1px dashed black;
-  width: 192px;
+.parent { 
+  display: grid; 
+  grid-template-columns: 700px 300px; 
+  grid-column-gap: 0px;
+  grid-row-gap: 0px; 
 }
 
+.map-wrapper {
+  display: grid; 
+  grid-gap:0;
+  grid-template-columns: repeat(10, 64px);
+  grid-template-rows: 64px;  
+  border-bottom: 1px dashed black;
+  border-left: 1px dashed black;
+}
+
+.palette-wrapper {
+  display: grid;
+  grid-gap:0;
+  grid-template-columns: repeat(4, 64px);
+  grid-template-rows: repeat(10, 64px);  
+  border-bottom: 1px dashed black;
+  border-left: 1px dashed black;
+}
+
+.internal-square {
+  width: 64px; height:64px;
+}
 .grid-square {
   width: 64px; height:64px;
   border-top: 1px dashed black;
   border-right: 1px dashed black;
 }
 
-.grid-square:hover {
-  background-color: darkolivegreen;
+.selected {
+  background-color: lightgray;
   background-blend-mode: overlay;
 }
 
-.brown1 {
+.unselected {
+  background-color: none;
+}
+
+.grid-square:hover {
+  background-color: darkgray;
+  background-blend-mode: overlay;
+}
+
+.ground1 {
   background: url(/images/scifi_tilesheet.png) no-repeat; background-position: 0 0px;
 }
 
-.brown2 {
+.ground2 {
   background: url(/images/scifi_tilesheet.png) no-repeat; background-position: -64px 0px;
 }
 
-.blue1 {
+.trees1 {
+  background: url(/images/scifi_tilesheet.png) no-repeat; background-position: -128px 0px;
+}
+
+.trees2 {
+  background: url(/images/scifi_tilesheet.png) no-repeat; background-position: -192px 0px;
+}
+
+.vert-road-background {
+  background: url(/images/scifi_tilesheet.png) no-repeat; background-position: -256px 0px;
+}
+
+.horizontal-road-background {
+  background: url(/images/scifi_tilesheet.png) no-repeat; background-position: -320px 0px;
+}
+
+.crossroad-background {
+  background: url(/images/scifi_tilesheet.png) no-repeat; background-position: -384px 0px;
+}
+
+.down-t-road-background {
+  background: url(/images/scifi_tilesheet.png) no-repeat; background-position: -448px 0px;
+}
+
+.up-t-road-background {
+  background: url(/images/scifi_tilesheet.png) no-repeat; background-position: -512px 0px;
+}
+
+.trees3 {
+  background: url(/images/scifi_tilesheet.png) no-repeat; background-position: -128px -64px;
+}
+
+.trees4 {
+  background: url(/images/scifi_tilesheet.png) no-repeat; background-position: -192px -64px;
+}
+
+.right-down-road-curve-background {
+  background: url(/images/scifi_tilesheet.png) no-repeat; background-position: -256px -64px;
+}
+
+.left-down-road-curve-background {
+  background: url(/images/scifi_tilesheet.png) no-repeat; background-position: -320px -64px;
+}
+
+.right-culdesac-background {
+  background: url(/images/scifi_tilesheet.png) no-repeat; background-position: -384px -64px;
+}
+
+.left-t-road-background {
+  background: url(/images/scifi_tilesheet.png) no-repeat; background-position: -448px -64px;
+}
+
+.right-t-road-background {
+  background: url(/images/scifi_tilesheet.png) no-repeat; background-position: -512px -64px;
+}
+
+.trees2 {
+  background: url(/images/scifi_tilesheet.png) no-repeat; background-position: -192px 0px;
+}
+
+.tree1 {
+  background: url(/images/scifi_tilesheet.png) no-repeat; background-position: 0px -192px;
+}
+
+.ice1 {
   background: url(/images/scifi_tilesheet.png) no-repeat; background-position: 0px -64px;
+}
+
+.ice2 {
+  background: url(/images/scifi_tilesheet.png) no-repeat; background-position: -64px -64px;
+}
+
+.trees5 {
+  background: url(/images/scifi_tilesheet.png) no-repeat; background-position: 0px -128px;
+}
+
+.trees6 {
+  background: url(/images/scifi_tilesheet.png) no-repeat; background-position: -64px -128px;
+}
+
+.trees7 {
+  background: url(/images/scifi_tilesheet.png) no-repeat; background-position: -128px -128px;
+}
+
+.trees8 {
+  background: url(/images/scifi_tilesheet.png) no-repeat; background-position: -192px -128px;
+}
+
+.top-right-road-curve-background {
+  background: url(/images/scifi_tilesheet.png) no-repeat; background-position: -256px -128px;
+}
+
+.top-left-road-curve-background {
+  background: url(/images/scifi_tilesheet.png) no-repeat; background-position: -320px -128px;
+}
+
+.left-culdesac-background {
+  background: url(/images/scifi_tilesheet.png) no-repeat; background-position: -384px -128px;
+}
+
+.bottom-culdesac-background {
+  background: url(/images/scifi_tilesheet.png) no-repeat; background-position: -448px -128px;
+}
+
+.top-culdesac-background {
+  background: url(/images/scifi_tilesheet.png) no-repeat; background-position: -512px -128px;
 }
