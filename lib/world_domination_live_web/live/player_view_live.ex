@@ -1,11 +1,17 @@
-<div class="parent">
-    <div class="map-wrapper">
-    <%= for i <- (1..100) do %>
-      <%= Phoenix.LiveView.live_render(@conn, WorldDominationLiveWeb.MapSquareLive) %>
-    <% end %>
-    </div>
-  <div class="palette-wrapper">
-    <div class = "grid-square ground1">Ground 1</div>
+defmodule WorldDominationLiveWeb.PlayerViewLive do
+  use Phoenix.LiveView
+  alias WorldDominationLive.PlayerState
+
+  def render(assigns) do
+    ~L"""
+    <div class="parent">
+      <div class="map-wrapper">
+        <%= for i <- (1..100) do %>
+          <div phx-click="toggle" phx-value="<%= i %>" class="grid-square <%= css_class(assigns, @id || i) %>">&nbsp;</div>
+        <% end %>
+      </div>
+      <div class="palette-wrapper">
+      <div class = "grid-square ground1">Ground 1</div>
     <div class = "grid-square ground2">Ground 2</div>
     <div class = "grid-square ice1">ice 1</div>
     <div class = "grid-square ice2">Ice 2</div>
@@ -45,5 +51,44 @@
     <div class = "grid-square">&nbsp;</div>
     <div class = "grid-square">&nbsp;</div>
     <div class = "grid-square">&nbsp;</div>
-  </div>
-</div>
+      </div>
+    </div>
+    """
+  end
+
+  def css_class(%{player_state: player_state}, id) do
+    {:ok, player} = player_state
+    # IO.inspect(player)
+    PlayerState.get(player, id) || "unselected"
+    # Map.get(player_state, id)
+  end
+
+  def mount(_session, socket) do
+    IO.puts("mounted")
+    player_state = PlayerState.start_link([])
+    # IO.inspect(socket)
+    {:ok, assign(socket, id: nil, player_state: player_state)}
+  end
+
+  def handle_event("toggle", value, socket) do
+    current_css = css_class(socket.assigns, value)
+    IO.inspect(socket.assigns)
+    IO.puts(current_css)
+    IO.puts(value)
+    {:ok, player} = socket.assigns.player_state
+    IO.inspect(player)
+
+    new_state =
+      case current_css do
+        "selected" -> "unselected"
+        "unselected" -> "selected"
+        _ -> "selected"
+      end
+
+    PlayerState.put(player, value, new_state)
+    # new_state = "selected"
+
+    # new_state = if current_css == ('' || "selected"), do: "unselected", else: "selected"
+    {:noreply, assign(socket, id: value)}
+  end
+end
